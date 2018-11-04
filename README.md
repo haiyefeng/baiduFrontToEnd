@@ -1,33 +1,33 @@
 baiduFrontToEnd
-====
-前端技术学院相关代码
 -------
-### CSS弹性盒子
+###前端技术学院相关代码
 
-### CSS布局
+##### CSS弹性盒子
 
-### html简历
+##### CSS布局
 
-### html百度设计稿
+##### html简历
 
-### html复杂的网页
+##### html百度设计稿
 
-### js input表单
+##### html复杂的网页
 
-### js date对象
+##### js input表单
 
-### js 查找元素
+##### js date对象
 
-### js 数组
+##### js 查找元素
 
-### js 动画
+##### js 数组
 
-### js 数字计算
+##### js 动画
 
-### js 图片库
+##### js 数字计算
 
-### Ajax
+##### js 图片库
 
-### js xml
+##### Ajax
 
-### 表格与svg canvas
+##### js xml
+
+##### 表格与svg canvas
