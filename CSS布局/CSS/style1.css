@@ -1,0 +1,12 @@
+#left{
+    float:left;
+    width:30%;
+    background:red;
+    height:200px;
+}
+#right{
+   background:yellow; 
+   width:70%;
+   height:200px;
+   float:right;
+}

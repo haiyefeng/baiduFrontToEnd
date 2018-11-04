@@ -1,0 +1,35 @@
+h1{
+    background-color:gray;
+    width:100%;
+    color:white;   
+    padding:10px;
+}
+*{
+    line-height: 1.5;
+    margin: 1px;
+}
+span{
+    margin-left:2em;
+}
+
+p{
+    word-spacing: 0.5em;
+}
+
+h2{
+    float:left;
+    background:rgb(216, 216, 216);
+    width:15%;
+    height:100px;
+    text-align: center;
+    margin: auto 0;
+    line-height: 100px;
+}
+div.clear{
+    clear:both;
+}
+div.right{
+    float:right;
+    width:83%;
+    height: 100px;
+}

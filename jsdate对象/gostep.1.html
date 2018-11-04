@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>机器人gostep</title>
+    </head>
+    <body>
+        <script>
+
+/*Foo.prototype = {constructor:Foo};
+var FooInstance = new Foo();
+console.log(FooInstance.constructor === Foo);   //true
+                                                        Foo{	prototype:{constructor:Foo,x:1,_proto_: object}, 
+		                                                        _proto_: Function.prototype,
+		                                                        constructor:Function;}*/
+var Foo = function(){};
+console.log(Foo.prototype);         //Object { x: 1, … }
+console.log(Foo.prototype.constructor);   //function Foo()
+console.log(Foo.__proto__);           //function ()
+console.log(Foo.constructor);       //function Function()
+Foo.prototype.x = 1;
+var FooInstance = new Foo();		//FooInstance{	  prototype:{constructor: FooInstance }
+                                                  //_proto_:Foo.prototype
+alert(Foo.prototype===FooInstance.__proto__);										            //constructor:Foo;}                                                 
+console.log(FooInstance.x);   //1
+console.log(FooInstance.prototype);     //undefined
+console.log(FooInstance.__proto__);       //Object { x: 1, … }
+console.log(FooInstance.constructor);   //function Foo()
+Foo.prototype = {x:2};				//Foo{  prototype: {
+                                           // x :2,
+                                           // constructor:object,
+                                           // prototype:{constructor:foo}}
+										//_proto_:Function.prototype,
+					 					//constructor:Function;
+console.log(Foo.prototype);             //Object { x: 2 }
+console.log(Foo.__proto__);               //function ()
+console.log(Foo.constructor);           //function Function()
+console.log(FooInstance.x);   //1
+console.log(FooInstance.prototype);     //undefined
+console.log(FooInstance.__proto__);       //Object { x: 1, … }
+console.log(FooInstance.constructor);        //function Foo()                              
+var NewFooInstance = new Foo();
+console.log(NewFooInstance.x);  //2
+console.log(NewFooInstance.prototype);  //undefined
+console.log(NewFooInstance.__proto__);    //Object { x: 2 }
+console.log(NewFooInstance.constructor); //function Object()
+        </script>
+    </body>
+</html>

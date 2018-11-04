@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>
+            Name:<span id="name"></span> 
+        </p>
+        <p>
+            Date:<span id="date"></span>
+        </p>
+        <p>
+            Phone:<span id="phone"></span>
+        </p>
+    </div>
+    <script>
+        var txt = "<root>";
+        txt +="<namey>赵倩</namey>";
+        txt +="<date>";
+        txt +="<year>1993</year>";
+        txt +="<month>04</month>";
+        txt +="<day>24</day>";
+        txt +="</date>";
+        txt +="<phone>15916272252</phone>";
+        txt +="</root>";
+if(window.DOMParser){
+parser = new DOMParser();
+xmlDoc = parser.parseFromString(txt,"text/xml");
+}
+else if(window.ActiveXObject){
+xmlDoc = new ActiveXObject("Microsoft.XMLHTTP");
+xmlDoc.async = "false";
+xmlDoc.loadXML(txt);
+}
+    var name = document.getElementById("name");
+    name.innerHTML = xmlDoc.getElementsByTagName("namey")[0].firstChild.nodeValue;
+    var date = document.getElementById("date");
+    date.innerHTML = xmlDoc.getElementsByTagName("year")[0].firstChild.nodeValue + "/" + xmlDoc.getElementsByTagName("month")[0].firstChild.nodeValue + "/" + xmlDoc.getElementsByTagName("day")[0].firstChild.nodeValue;
+    var phone = document.getElementById("phone");
+    phone.innerHTML = xmlDoc.getElementsByTagName("phone")[0].firstChild.nodeValue;
+    </script>
+</body>
+</html>

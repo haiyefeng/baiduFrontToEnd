@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="stack-input" type="text">
+    <p id="stack-cont">栈内容：applelt;-pear</p>    
+    <button id="push-btn">进栈</button>
+    <button id="pop-btn">退栈</button>
+    <button id="font-btn">打印栈顶元素内容</button>
+    <button id="empty-btn">判断栈是否为空</button>    
+<script>
+
+var arr = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+//将上面数组分别按从大到小以及从小到大进行排序后在console中输出
+var fun1 = function(a,b){
+    return (a-b);};
+console.log(arr.sort(fun1));
+
+var arr = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+//将上面数组分别按字母顺序a-z及z-a进行排序，在console中输出
+var arraz = arr.sort()
+console.log(arraz);
+var arr1 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+
+console.log(arr1.sort().reverse());
+
+var arr = [[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+//将上面的二维数组，按照每个元素中第二个数从大到小的顺序进行排序输出，输出结果应该为：
+//[[22, 63], [16, 60], [7, 44], [26, 35], [10, 14]]
+var fun2 = function(arr1,arr2){
+return -(arr1[1]-arr2[1]);
+};
+console.log(arr.sort(fun2));
+
+var arr = [
+    {
+        id: 1,
+        name: 'candy',
+        value: 40
+    }, {
+        id: 2,
+        name: 'Simon',
+        value: 50
+    }, {
+        id: 3,
+        name: 'Tony',
+        value: 45
+    }, {
+        id: 4,
+        name: 'Annie',
+        value: 60
+    }
+];
+//将上面数组分别按元素对象的value值从小到大进行排序后输出
+var fun3 = function(obj1,obj2){
+return (obj1.value - obj2.value);
+};
+console.log(arr.sort(fun3));
+
+</script>
+</body>
+</html>

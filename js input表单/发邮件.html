@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Send E-mail</title>
+    <style>
+        #email-sug-wrapper{list-style-type:none;}
+        li.emailwrap:hover{color:rgb(0, 110, 255);
+        cursor:pointer }
+        li.selected{
+            color: brown;
+            cursor:pointer
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text" autofocus>
+        <ul id="email-sug-wrapper" class="email-sug"></ul>
+    </div>
+    <script>
+    var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'],     //将后缀存在数组中
+    ulText="",nowSelectTipIndex = 0,                                                //将li列表先存为字符串
+    emailInput = document.getElementById("email-input"),                            //取得input节点和ul节点
+    ulWrapper = document.getElementById("email-sug-wrapper");   
+
+    emailInput.focus();                                           
+
+    emailInput.onkeyup = function(event){
+        createTips();
+        insertToWrapper();
+        controlDisplay();
+        if(event.keyCode!=13&&event.keyCode!=38&&event.keyCode!=40){
+            resetSelect();  
+        }  
+        if(event.keyCode==27){
+            emailInput.select();
+            hideFrame();
+        }                                                 
+    }
+    
+    ulWrapper.onclick = function(e){
+        getInput();
+        postList = e.target.firstChild.nodeValue;
+        emailInput.value = htmlDecodeByRegExp(postList);
+        hideFrame();
+        emailInput.focus();
+    }
+
+    emailInput.onkeypress = function keyListen(event) {
+    var liLen = ulWrapper.childElementCount;    
+    if (event.keyCode==38) {
+        if (nowSelectTipIndex==0) {
+            nowSelectTipIndex =  liLen - 1;
+        } else {
+            nowSelectTipIndex--;
+        }
+    }
+    if (event.keyCode==40) {
+        if (nowSelectTipIndex==liLen-1) {
+            nowSelectTipIndex = 0;
+        } else {
+            nowSelectTipIndex++;
+        }
+    }
+    if (event.keyCode==13) {
+        emailInput.value = htmlDecodeByRegExp(ulWrapper.childNodes[nowSelectTipIndex].firstChild.nodeValue);
+        hideFrame();
+    }
+}   
+
+    function resetSelect() {
+    nowSelectTipIndex = 0;    
+}  
+
+    function htmlEncodeByRegExp(str){ 
+        var s = "";
+        if(str.length == 0) return "";
+        s = str.replace(/&/g,"&");
+        s = s.replace(/</g,"<");
+        s = s.replace(/>/g,">");
+        s = s.replace(/ /g," ");
+        s = s.replace(/\'/g,"'");
+        s = s.replace(/\"/g,'"');
+        return s; 
+       }
+
+    function htmlDecodeByRegExp(str){ 
+             var s = "";
+             if(str.length == 0) return "";
+             s = str.replace(/&/g,"&");
+             s = s.replace(/</g,"<");
+             s = s.replace(/>/g,">");
+             s = s.replace(/ /g," ");
+             s = s.replace(/'/g,"\'");
+             s = s.replace(/"/g,"\"");
+             return s; 
+       }
+
+    function getInput() {
+        var txt = emailInput.value;
+        return emailInWS = htmlEncodeByRegExp(txt.trim());
+}
+
+    function createTips() {
+        var emailInWS = getInput();
+        ulText = "";
+        var backTxt = "";
+        if(emailInWS.indexOf("@")!=-1){                                             //判断输入内容是否含有@
+            var txtIndex = emailInWS.indexOf("@");                                          //取得@的索引
+            backTxt = emailInWS.substr(txtIndex+1,txtIndex.length);                     //获取@后的内容
+            emailInWS = emailInWS.slice(0,txtIndex);                                    //获取@前的内容  
+        }   
+        for(let i=0,len=postfixList.length;i<len;i++){                                  //创建li列表 
+            if(postfixList[i].indexOf(backTxt)!=-1){                  //判断@后是否有内容且后缀是否包含这个内容
+                ulText += "<li class = 'emailwrap'>" + emailInWS + "@" + postfixList[i] + "</li>";   //取得这个后缀，合并 
+            } 
+        }
+    return ulText;
+}
+
+    function insertToWrapper() {
+    Tips = createTips();
+    ulWrapper.innerHTML = Tips;   
+    ulWrapper.childNodes[nowSelectTipIndex].setAttribute("class","selected");
+        for(let i=0,len=ulWrapper.childElementCount;i<len;i++){
+        if(i!=nowSelectTipIndex){
+            ulWrapper.childNodes[i].classList.remove();
+        }
+    }       
+}
+
+    function controlDisplay() {
+    if (!emailInWS) {
+        hideFrame();
+    } else {
+        showFrame();
+    }
+}
+
+    function hideFrame() {
+    ulWrapper.style.display = "none";
+}
+
+    function showFrame() {
+    ulWrapper.style.display = "block";
+} 
+
+    </script>
+</body>
+</html>

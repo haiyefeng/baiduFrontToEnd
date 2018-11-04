@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<div>
+    <label>String A:
+        <input id="radio-a" type="radio" checked="true" name="str-obj" value="a">
+    </label>
+    <textarea id="str-a"></textarea>
+    <label>String B:
+        <input id="radio-b" type="radio" name="str-obj" value="b">
+    </label>
+    <textarea id="str-b"></textarea>        
+    <label>Num A：<input id="num-a" type="number" value="0"></label>
+    <label>Num B：<input id="num-b" type="number" value="1"></label>
+</div>
+<div>
+    <button id="1">获取当前选中输入的内容长度</button>
+    <button id="2">当前选中输入中的第3个字符</button>
+    <button id="3">把两个输入框的文字连接在一起输出（concat）</button>
+    <button id="4">输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+    <button id="5">输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+    <button id="6">使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+    <button id="7">当前选中输入框的行数</button>
+    <button id="8">使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+    <button id="9">把所选输入框中的内容全部转为大写</button>
+    <button id="10">把所选输入框中的内容全部转为小写</button>
+    <button id="11">把所选输入框中内容的半角空格全部去除</button>
+    <button id="12">把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+</div>
+<p id="result"></p>
+<script>
+    var btn = document.getElementsByTagName("button");
+    var radioA = document.getElementById("radio-a");
+    var radioB = document.getElementById("radio-b");
+    var strA = document.getElementById("str-a");
+    var strB = document.getElementById("str-b");
+    var numA = document.getElementById("num-a");
+    var numB = document.getElementById("num-b");
+    var result = document.getElementById("result");
+    var handler = function(event){
+                    var txtA = strA.firstChild.nodeValue;
+                    var txtB = strB.firstChild.nodeValue;
+                    var A = numA.value;
+                    var B = numB.value;
+    switch(event.target.id){
+        case "1":                    
+                    var txtLength = 0;
+                    if(radioA.checked ==true){
+                        txtLength = strA.value.length;
+                    }
+                    if(radioB.checked ==true){
+                        txtLength = strB.value.length;
+                    }
+                    result.innerHTML = txtLength;
+                    break;
+        case "2":
+                    var tLetter = "";
+                    var txtLength = 0;
+                    if(radioA.checked ==true){
+                        tLetter = strA.firstChild.nodeValue[2];
+                    }
+                    if(radioB.checked ==true){
+                        tLetter = strB.firstChild.nodeValue[2];
+                    }
+                    result.innerHTML = tLetter;
+                    break;
+        case "3":   
+                   
+                    result.innerHTML = txtA.concat(txtB);
+                    break;
+        case "4":
+                    result.innerHTML = txtA.indexOf(txtB);
+                    break;
+        case "5":
+                    result.innerHTML = txtB.lastIndexOf(txtA);
+                    break;
+        case "6":   
+                    var txt ="";
+                    if(radioA.checked ==true){
+                        txt = txtA.slice(numA.value,numB.value);
+                    }
+                    if(radioB.checked ==true){
+                        txt = txtB.slice(numA.value,numB.value);
+                    }
+                    result.innerHTML =txt;
+                    break;
+        case "7":
+                     if(radioA.checked ==true){
+                       nChange = 0,nCIndex = txtA.indexOf("\n");
+                       alert(nCIndex); 
+                         if(nCIndex>-1){
+                             alert("1");
+                             nChange++;
+                             txtA = txtA.substr(nCIndex+1);
+                             nCIndex = txtA.indexOf("\n");
+                         }
+                    }
+                    if(radioB.checked ==true){
+                        nChange = 0,nCIndex = txtB.indexOf("\n");
+                        if(nCIndex>-1){
+                             nChange++;
+                             txtB = txtB.substr(nCIndex+1);
+                             nCIndex = txtB.indexOf("\n");
+                         }
+                    }
+                    result.innerHTML = nChange;
+                    break;
+        case "8":   //使用substr获取选中输入框内容的子字符串，参数为num-a及num-b
+                    if(radioA.checked ==true){
+                        result.innerHTML = txtA.substr(A,B);
+                    }
+                    if(radioB.checked ==true){
+                        result.innerHTML = txtB.substr(A,B);
+                    }
+                    break;
+        case "9":   //把所选输入框中的内容全部转为大写
+                    if(radioA.checked ==true){
+                        result.innerHTML = txtA.toUpperCase();
+                    }
+                    if(radioB.checked ==true){
+                        result.innerHTML = txtB.toUpperCase();
+                    } 
+                    break;
+        case "10":  //把所选输入框中的内容全部转为小写
+                    if(radioA.checked ==true){
+                        result.innerHTML = txtA.toLowerCase();
+                    }
+                    if(radioB.checked ==true){
+                        result.innerHTML = txtB.toLowerCase();
+                    } 
+                    break;
+        case "11":  //把所选输入框中内容的半角空格全部去除
+                    if(radioA.checked ==true){
+                        result.innerHTML = txtA.split(" ").join("");
+                    }
+                    if(radioB.checked ==true){
+                        result.innerHTML = txtB.split(" ").join("");
+                    }
+                    break;
+        case "12":  //把所选输入框中内容的a全部替换成另外一个输入框中的内容
+                    if(radioA.checked ==true){
+                        result.innerHTML = txtA.split("a").join(txtB);
+                    }
+                    if(radioB.checked ==true){
+                        result.innerHTML = txtB.split("a").join(txtA);
+                    } 
+                    break;
+    }
+}
+
+for(var i=0,length = btn.length;i<length;i++){
+    btn[i].addEventListener("click",handler,false);
+}
+</script>
+</body>
+</html>

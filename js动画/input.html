@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input id="name" type="text">    
+    <button id="submit-btn">Submit</button>
+    <script>
+    var btn = document.querySelector("button[id='submit-btn']");
+    var name = document.querySelector("#name");
+    var submit = function(event){
+        console.log(name.value);
+    }
+    btn.addEventListener("click",submit,false);
+    name.onkeydown = function(event){
+        e = event.keyCode;
+        if(e==13||e==108){          
+            console.log(name.value);
+        }
+        if(e==27){
+            document.querySelector("#name").value = "";     
+        }
+    };
+    /*在HTML中增加上面的代码，然后通过JavaScript编写如下功能：
+当点击按钮 submit-btn 时，在console中输出 name 中的内容
+在输入过程中，如果按回车键，则同样执行上一条的需求
+在输入过程中，如果按 ESC 键，则把输入框中的内容清空*/
+    </script>
+</body>
+</html>

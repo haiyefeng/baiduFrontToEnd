@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function loadXMLDoc(dname){
+        var xmlHttp = null;
+        if(window.XMLHttpRequest){
+            xmlHttp = new XMLHttpRequest();
+        }
+        else if(window.ActiveXObject){
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlHttp.open("GET",dname,false);
+        xmlHttp.send();
+        return xmlHttp.responseXML;
+        }
+        xml = loadXMLDoc("books.xml");
+        path = "/bookstore/book/title";
+        if (window.ActiveXObject){
+            var nodes = xml.selectNodes(path);
+            for(i = 0;i<nodes.length;i++){
+                document.write(nodes[i].chidNodes[0].nodeValue);
+                document.write("<br />");
+                }
+            }
+        else if(document.implementation&&document.implementation.createDocument){
+            var nodes = xml.evaluate(path,xml,null,XPathResult.ANY_TYPE,null);
+            var result = nodes.iterateNext();
+            while(result){
+                document.write(result.childNodes[0].nodeValue);
+                document.write("<br />");
+                result = nodes.iterateNext();
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div>
+                <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label><input id="num-a" type="text">
+                <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b" type="text">
+            </div>
+            <div>
+                <button id="1">判断当前选中的输入框输入内容是否为数字</button>
+                <button id="2">把 A 四舍五入为 B 个小数位数的数字</button>
+                <button id="3">当前选中数字的绝对值</button>
+                <button id="4">对当前选中的数字进行上舍入</button>
+                <button id="5">对当前选中的数字进行下舍入</button>
+                <button id="6">把当前选中的数字四舍五入为最接近的整数</button>
+                <button id="7">返回 A 和 B 中的最高值</button>
+                <button id="8">返回 A 和 B 中的最低值</button>        
+            </div>
+            <p id="result"></p>
+<script>
+    var btn = document.getElementsByTagName("button");
+    var radioA = document.getElementById("radio-a");
+    var radioB = document.getElementById("radio-b");
+    var numA = document.getElementById("num-a");
+    var numB = document.getElementById("num-b");
+    var result = document.getElementById("result");
+    var handler = function(event){
+        var A = Number(numA.value);
+        var B = Number(numB.value);
+    switch(event.target.id){      
+        case "1":   //判断当前选中的输入框输入内容是否为数字
+                    var isNum;                 
+                    if(radioA.checked ==true){
+                        if(A){isNum = true;}  //判断是否为数字就用Number转换后的布尔值，如果非数字转换为NaN，则为false；不可用typeof再来判断，NaN也是number类型
+                        else{isNum = false;}                        
+                    }
+                    if(radioB.checked ==true){
+                        if(B){isNum = true;}
+                        else{isNum = false;} 
+                    }
+                    result.innerHTML = isNum;
+                    break;
+        case "2":   //把 A 四舍五入为 B 个小数位数的数字   
+                   if(A&&B){
+                    result.innerHTML = Math.round(A).toFixed(B);
+                   }
+                   else{result.innerHTML="please,enter two number";}
+                   break;
+        case "3":   //当前选中数字的绝对值
+                    var abs = 0;
+                    if(radioA.checked ==true){
+                        if(A){abs = Math.abs(A);}                   
+                    }
+                    if(radioB.checked ==true){
+                        if(B){abs = Math.abs(B);}
+                    }
+                    result.innerHTML=abs;
+                    break;
+        case "4":   //对当前选中的数字进行上舍入
+                    var ceilN = 0;
+                    if(radioA.checked ==true){
+                        if(A){ceilN = Math.ceil(A);}                     
+                    }
+                    if(radioB.checked ==true){
+                        if(B){ceilN = Math.ceil(B);}
+                    }
+                    result.innerHTML=ceilN;
+                    break;                    
+        case "5":   //对当前选中的数字进行下舍入
+                    var floorN = 0;
+                    if(radioA.checked ==true){
+                        if(A){floorN = Math.floor(A);}  
+                    }
+                    if(radioB.checked ==true){
+                        if(B){floorN = Math.floor(B);}
+                    }
+                    result.innerHTML=floorN;
+                    break;                  
+        case "6":   //把当前选中的数字四舍五入为最接近的整数
+                    var roundN = 0;
+                    if(radioA.checked ==true){
+                        if(A){roundN = Math.round(A);}                    
+                    }
+                    if(radioB.checked ==true){
+                        if(B){roundN = Math.round(B);}
+                    }
+                    result.innerHTML=roundN;
+                    break;
+        case "7":   //返回 A 和 B 中的最高值
+                    if(A&&B){
+                    result.innerHTML = Math.max(A,B);
+                   }
+                   else{result.innerHTML="please,enter two number";}
+                   break;
+        case "8":   //返回 A 和 B 中的最低值
+                    if(A&&B){
+                    result.innerHTML = Math.min(A,B);
+                   }
+                   else{result.innerHTML="please,enter two number";}
+                   break;
+    }
+}
+
+for(var i=0,length = btn.length;i<length;i++){
+    btn[i].addEventListener("click",handler,false);
+}
+</script>
+</body>
+</html>

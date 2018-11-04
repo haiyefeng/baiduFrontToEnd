@@ -1,0 +1,349 @@
+*{
+    margin:0;
+    padding:0;
+}
+h1{
+   font-size: 40px;
+   text-align:center;
+}
+p{
+    text-align:center;}
+body{
+    width:1600px;
+    margin:0 auto;
+}
+
+header{
+    height:1000px;
+    background:url("img/图层\ 1.png") center no-repeat;
+}
+header h1{
+    padding: 205px 0 80px 0;
+    font: lighter 55px Arial;
+    color:white;
+    text-align: center;
+}
+header h1+p{
+padding-bottom:100px; 
+}
+header h1+p,h2+p,h2{
+    text-align: center;
+    color:rgb(185, 179, 179);
+}
+header form h2{
+    padding:55px 0 10px 0;
+}
+header form{
+    border:1px solid rgb(185, 179, 179);
+    height:250px;
+    width: 970px;
+    margin:0 auto;
+}
+header form input{
+    height:50px;
+    margin:40px 0 0 30px;
+    width:300px;
+    padding-left: 10px;
+    background-color:transparent;
+    color:white;
+}
+header input[type="submit"]{
+    width:125px;
+    padding:0;
+    color:black;
+    background: white;
+}
+input[name="youremail"]{
+    margin-left:100px;
+}
+
+#page{
+    height:710px;
+    background: white;
+}
+#page h1,h2{
+    text-align:center;
+    font-weight: lighter;
+}
+#page h2{
+    padding:90px 0 35px 0;
+    color:black;
+    font-size: 1.2em;
+}
+ul{
+    list-style-type: none;
+
+}
+#page li{text-align: left;
+color:gray;
+font-weight: lighter;
+padding:15px 20px 15px 70px;
+
+}
+#mobile{
+    background-image: url("img/Iphone Icon.png");
+    background-position: 0 center;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+}
+#acessibility{
+    background-image: url("img/Check Icon.png");
+    background-position: 0 center;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+}
+#fluid{
+    background-image: url("img/Pencil Icon.png");
+    background-position: 0 center;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+}
+#customization{
+    background-image: url("img/Settings Icon.png");
+    background-position:0 center;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+}
+#container{
+    margin:0 270px;
+    padding-top: 80px;
+}
+#left{
+    float:left;
+}
+#container::after{
+    display:table;
+    content: "";
+    clear: both;
+}
+#right{
+    float:right;
+}
+#page div ul:nth-of-type(2){
+    padding-top:70px;
+}
+#page div ul li:nth-of-type(2){
+    margin-top:-10px;
+}
+#data{
+    height:800px;
+    background: url("img/图层 2.png") center no-repeat;
+    position: relative;
+}
+#smart{
+    position: absolute;
+    top:180px;
+    left: 315px;
+}
+#smart p{
+    padding:45px 0 55px 0;
+    font-size:20px;
+}
+#smart h1{
+    font-size:40px;
+    color:white;
+}
+#smart ul li{
+    float:left;
+    padding:0;
+}
+#smart ul li:nth-of-type(2){
+    margin-left:30px;
+}
+
+#smart input{
+    height:60px;
+    width:240px;
+    padding:20px;
+}
+
+#tech{
+    height:600px;
+    width:645px;
+    position: absolute;
+    top:100px;
+    right:0;
+    background: url("img/IPad.png") center no-repeat;
+}
+#tech img{
+    width:585px;
+    height:542px;
+    display:block;
+    padding:29px 0 29px 60px;
+}
+
+#product{
+    height:590px;
+    text-align: center;
+    padding-top:100px;
+}
+#container1{
+    padding:60px 665px 0 665px;
+}
+#center1{
+    position: relative;
+    width:100%;
+    float:left;
+}
+#left1{
+    padding:0 80px 0 315px;
+    width:270px;
+    margin-left:-665px;
+    float:left;
+    position: relative;
+    left:-270px;
+}
+#right1{
+    padding:0 315px 0 80px;
+    position: relative;
+    float:left;
+    width:270px;
+    margin-right:-665px;
+}
+#product article{
+    padding-top:30px;
+    font-size:20px;
+    line-height: 1.5;
+}
+#reader{
+    height:998px;
+    border-top:1px gray solid;
+    border-bottom:1px gray solid;
+    display:flex;
+    flex-flow: column;
+}
+#reader div.outdiv{
+    display: -moz-box; /* Firefox */ 
+display: -ms-flexbox; /* IE10 */ 
+display: -webkit-box; /* Safari */ 
+display: -webkit-flex; /* Chrome, WebKit */ 
+display: box; 
+display: flexbox; 
+display: flex; 
+width: 100%; 
+height: 100%; 
+    flex:1;
+    flex-flow:row wrap;
+    align-items: center;
+  justify-content: space-around;
+}
+#reader div.outdiv div{
+    flex:1;
+    width:600px;
+    height:350px;
+    margin:auto;
+}
+#reader div.outdiv div.leftdiv{
+    padding-left:310px;
+}
+#reader div.outdiv div.rightdiv{
+    padding-right:310px;
+}
+
+#imgbox{
+    display: -moz-box; /* Firefox */ 
+    display: -ms-flexbox; /* IE10 */ 
+    display: -webkit-box; /* Safari */ 
+    display: -webkit-flex; /* Chrome, WebKit */ 
+    display: box; 
+    display: flexbox; 
+    display: flex; 
+    width: 100%; 
+    height: 100%; 
+    flex-flow: column;
+}
+#imgbox div{
+    display:flex;
+    flex:1;
+    flex-flow: row wrap;
+    align-items: center;
+  justify-content: space-around;
+  
+}
+#imgbox div div{
+    flex:1;
+    padding:0 300px;
+}
+#crew h1{
+    padding-top:90px;
+}
+#crew p{
+    padding-top:20px;
+    text-align: center;
+    padding-bottom:30px;
+}
+#imgbox div div img{
+    padding-top:30px;
+    padding-left:30px;
+}
+#contact{
+    height:698px;
+    border:1px gray solid;
+}
+
+#contactright li{
+    font-size:20px;
+    padding:50px 0 0 25px;
+    margin:0 auto;
+}
+#contact li#caddress{
+    background: url("img/Map Icon.png")  0 bottom no-repeat;
+    background-size: 25px 25px;
+}
+#contact li#cphone{
+    background: url("img/Phone\ Icon.png")  0 bottom no-repeat;
+    background-size: 25px 25px;
+}
+#contact li#cmail{
+    background: url("img/Mail\ Icon.png")  0 bottom no-repeat;
+    background-size: 25px 25px;
+}
+
+#contact form{
+    margin:70px 0 0 315px;
+    float:left;
+    width: 470px;
+    height: 560px;
+    border:1px solid black;
+    border-radius:10px;
+}
+#contact form h1{
+    padding-top:40px;
+
+    font-size:20px;
+}
+#contactright{
+    float:right;
+    padding:150px 315px 0 0;
+}
+
+#contactright p{
+    padding-top: 50px;
+}
+#contact form li{
+    padding-top:30px;
+margin:0 50px;
+    
+}
+#contact form li input{
+    height:50px;
+    width:370px;
+}
+#contact form li textarea{
+    height:145px;
+    width:370px;
+}
+#contact form li input[type="button"]{
+    color:white;
+    background: black;
+}
+
+footer{
+    height:410px;
+    background: black;
+}
+footer img{ 
+    float:left;
+    padding-top:80px;
+    padding-left: 200px;
+}

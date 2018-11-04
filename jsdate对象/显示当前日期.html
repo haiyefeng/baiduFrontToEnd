@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>当前时间</title>
+    </head>
+    <body>
+        <button id="btn1">点击此处显示时间(格式1)</button>
+        <button id="btn2">点击此处显示时间(格式2)</button>
+        <div id="timenow">            
+        </div>
+        <script>
+        var now = new Date(),day = null,tinmenow = document.getElementById("timenow");
+        function changeToDay(now){
+            day = now.getDay();
+            switch(day){
+                case 1: day = "星期一 ";
+                        break;
+                case 2: day = "星期二 ";
+                        break;
+                case 3: day = "星期三 ";
+                        break;
+                case 4: day = "星期四 ";
+                        break;
+                case 5: day = "星期五 ";
+                        break;
+                case 6: day = "星期六 ";
+                        break;
+                case 0: day = "星期日 ";
+                        break;
+            }
+        }
+        function increaseZero(now){
+            var date1 = [];
+            date1[0]=now.getFullYear(),
+            date1[1]=now.getMonth(),
+            date1[2]=now.getDate(),
+            date1[3]=now.getHours(),
+            date1[4]=now.getMinutes(),
+            date1[5]=now.getSeconds();
+            function infrontZero(times){
+                    if(times.length<2){
+                        return times = "0" + times;
+                    }   
+                    else{
+                        return times; 
+                    } 
+            }
+            for(let i=0;i<6;i++){
+                date1[i] = infrontZero(date1[i].toString());
+            }
+            return date1;
+        }
+        changeToDay(now);
+        date1 = increaseZero(now);
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick = function timeFormat1(){
+            timenow.innerHTML = date1[0]+" 年 "+date1[1]+" 月 "+date1[2]+" 日 "+day+date1[3]+":"+date1[4]+":"+date1[5];
+        }        
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick = function timeFormat2(){
+            if (parseInt(date1[3])>=12){
+                timenow.innerHTML = date1[0]+"-"+date1[1]+"-"+date1[2]+" "+day+(date1[3]-12)+":"+date1[4]+":"+date1[5]+"PM";
+            }
+            else if(parseInt(date1[3])==0){
+                timenow.innerHTML = date1[0]+"-"+date1[1]+"-"+date1[2]+" "+"12"+":"+date1[4]+":"+date1[5]+"AM";}
+            else{
+                timenow.innerHTML = date1[0]+"-"+date1[1]+"-"+date1[2]+" "+day+date1[3]+":"+date1[4]+":"+date1[5]+"AM";
+            }
+            
+        }        
+        </script>
+    </body>
+</html>

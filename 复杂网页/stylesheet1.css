@@ -1,0 +1,154 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    width:1580px;
+}
+ul{
+    
+    list-style-type: none;
+}
+#container{  
+    width:100%;
+    height:1020px;
+    position: relative;
+    overflow: hidden;
+}
+#container div.column{
+    float:left;
+}
+#center{
+    background-color: rgb(34, 44, 60);
+    width:250px;
+    height: 100%;
+}
+#left{
+width:100px;
+background-color: rgb(29, 37, 49);
+height: 100%;
+}
+#right{
+width:cala(100% - 350px);
+height: 100%;
+}
+#iconcollection{
+    position: fixed;
+    left:18px;
+}
+#iconcollection li img{
+    padding-top: 20px;
+}
+img[src="img/Bottom Actions.png"]{
+    position: fixed;
+    bottom:20px;
+    left:18px;
+}
+nav{
+    width:200px;
+    margin:0 auto;
+}
+#nav1,#nav2{
+    padding-bottom:25px;
+    border-bottom: 1px rgb(42, 53, 71) solid;
+}
+
+#center ul li{
+    padding-top:25px;
+    color:white;
+    text-align: left;
+}
+#center ul li:first-of-type{
+    color:rgb(42, 53, 71);
+}
+#center ul li image{
+    float:right;
+}
+
+#center footer{
+    position: fixed;
+    bottom:0;
+    color: white;
+    padding-bottom:40px;
+    background: url("img/Fill.png") left 80% no-repeat,url("img/Base.png") center 80% no-repeat;
+}
+#right header{
+    border-bottom: 1px rgb(78, 83, 87) solid;
+    position:relative;
+}
+#right header div{
+    position:fixed;
+    top: 0;
+    right: 0;
+    color:rgb(64, 167, 243);
+    padding-top: 10px;
+}
+#right header div span{
+    color:rgb(201, 201 , 201);
+}
+#right header div p{
+    display:inline-block;
+    padding:0 10px 0 10px;
+    text-align: center;
+    line-height: 25px;
+}
+img#down{
+    padding:25px;
+}
+#right header h1{
+    padding:30px;
+}
+#larticle{
+    width:400px;
+}
+#search{
+    padding:15px 30px;
+    border-right:1px rgb(78, 83, 87) solid;
+}
+#search input{
+    height:30px;
+    width:340px;
+    padding: 5px;
+}
+#larticle section article{
+    padding: 15px;
+    border-top:1px rgb(78, 83, 87) solid;
+    border-right:1px rgb(78, 83, 87) solid;
+}
+#larticle section article:first-of-type{
+    background: url("img/Colour highlight.png") no-repeat;
+}
+#larticle section p{
+    text-align: left;
+    vertical-align: middle;
+    vertical-align: -webkit-baseline-middle;
+}
+#la1,#larticle section article div:first-of-type{
+    padding-left: 60px;
+    overflow: hidden; 
+}
+#larticle section p.name1{
+    height:46px;
+    width:100%;
+}
+.distance{
+    float:right;
+}
+.name1,.profile{
+    float:left;
+    position: relative;
+}
+.profile{
+    margin-left:-100%;
+    right:60px;
+}
+#larticle section span.name2{
+    color:rgb(42, 53, 71);
+}
+div.lad2{
+    padding-top:10px;
+}
+#number4{
+    float:right;
+    vertical-align: text-top;
+}

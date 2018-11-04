@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        var xmlhttp = null;
+if(window.XMLHttpRequest){
+xmlhttp = new XMLHttpRequest();
+}
+else if(window.ActiveXObject){
+xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+}
+    xmlhttp.open("GET","2.xml",false);
+    xmlhttp.send(null);
+    xmlDoc = xmlhttp.responseXML;
+    var div = document.getElementsByTagName("div")[0];
+    div.innerHTML = xmlDoc.getElementById("1").firstChild.nodeValue;
+    </script>
+</body>
+</html>

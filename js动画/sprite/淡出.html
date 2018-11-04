@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>淡出</title>
+    <style>
+        body{
+            margin: 0 auto;
+        }
+        #photo{
+            width:480px;
+            height:480px;
+            background-image:url("smile.jpg");
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body> 
+    <div id="photo"></div>
+    <script>
+    var photo = document.getElementById("photo");
+    var top1 = 0;
+    var changeTop = function(){
+        if(top1 > -8160){
+            top1 -=480;
+            photo.style.backgroundPosition = "0 " + top1 +"px";
+            setTimeout(arguments.callee,100);
+        }
+        else{
+            top1 = 0;
+            setTimeout(arguments.callee,100);
+        }
+    };
+    setTimeout(changeTop,100);
+    </script>
+</body>
+</html>

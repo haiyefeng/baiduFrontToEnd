@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+#flexbox{
+        display: flex;
+        flex-flow: row;
+    }
+
+
+#right{  
+   background:yellow; 
+   width:200px;
+   height:200px;
+}
+#center{
+width:calc(100% - 400px);
+background:blue; 
+height:200px;
+}
+#left{
+    width:200px;
+    background:red;
+    height:200px;
+} 
+    </style>
+    <title>三列布局 弹性</title>
+</head>
+<body>
+    <div id="flexbox">
+    <div id="left">left</div>
+    <div id="center">center</div>
+    <div id="right">right</div>    
+    </div>
+    
+</body>
+</html>

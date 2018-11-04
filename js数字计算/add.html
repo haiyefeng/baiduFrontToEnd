@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="first-number" type="number" value="0" placeholder="第一个数字">
+    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>         
+        var handler = function(){
+            var fNumber = parseInt(document.getElementById("first-number").value);
+            var sNumber = parseInt(document.getElementById("second-number").value);
+            if(typeof(fNumber)!="number"||typeof(sNumber)!="number"){
+                console.error("please,enter number!");
+            }
+            var result = 0;
+            switch(this.id){ 
+                case "add-btn":
+                    result = fNumber + sNumber; 
+                    break;
+                case "minus-btn":
+                    result = fNumber - sNumber; 
+                    break;
+                case "times-btn":
+                    result = fNumber * sNumber; 
+                    break;
+                case "divide-btn":
+                    if(sNumber===0){
+                        console.error("please,enter a number not to be zero!");
+                    }
+                    result = fNumber / sNumber;
+                    break;
+                default:alert("oh!");
+            }
+            var pResult = document.getElementById("result");
+            pResult.innerHTML = result;
+        }
+        var button = document.getElementsByTagName("button");
+        for (i = 0,length = button.length;i<length;i++ ){
+            button[i].addEventListener("click",handler,false);
+        }
+    </script>
+</body>
+</html>

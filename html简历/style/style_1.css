@@ -1,0 +1,13 @@
+*{
+    line-height: 1.5;
+}
+span{
+    margin-left:2em;
+}
+p{
+    word-spacing: 0.5em;
+}
+span.block{
+    display:block;
+    margin-left:0;
+}

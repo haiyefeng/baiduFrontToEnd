@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="stack-input" type="text">
+    <p id="stack-cont">栈内容：applelt;-pear</p>    
+    <button id="push-btn">进栈</button>
+    <button id="pop-btn">退栈</button>
+    <button id="font-btn">打印栈顶元素内容</button>
+    <button id="empty-btn">判断栈是否为空</button>    
+<script>
+
+var queue = ["apple", "pear"],
+body = document.getElementsByTagName("body")[0],
+ptxt = document.getElementById("stack-cont");
+
+body.onclick = function(event){
+    var targetName = event.target,
+    inputValue = document.getElementById("stack-input").value;
+    switch(targetName.id){
+        case'push-btn':
+                        queue.push(inputValue);
+                        ptxt.innerHTML = queue.join("&lt;-");
+                        break;
+        case'pop-btn':
+                        queue.pop();
+                        ptxt.innerHTML = queue.join("&lt;-");
+                        break;
+        case'font-btn':
+                         ptxt.innerHTML = queue[0];
+                         break;
+        case'empty-btn':
+                        if (queue.length>0){
+                            ptxt.innerHTML = 0;                        
+                            }
+                            else{
+                            ptxt.innerHTML = 1;
+                            }
+                            break;
+    }
+}
+
+</script>
+</body>
+</html>
