@@ -26,4 +26,4 @@ baiduFrontToEnd
 
 ##### [Ajax](https://haiyefeng.github.io/baiduFrontToEnd/Ajax/ajax.html)
 
-##### [表格与svg canvas](https://haiyefeng.github.io/baiduFrontToEnd/表格与svg canvas/精明小卖家修改.html)
+##### [表格与svg canvas](https://haiyefeng.github.io/baiduFrontToEnd/表格与svg  canvas/精明小卖家修改.html)
