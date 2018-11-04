@@ -12,7 +12,7 @@ baiduFrontToEnd
 
 ##### [html复杂的网页]( https://haiyefeng.github.io/baiduFrontToEnd/复杂网页/微信.html )
 
-##### [js 表单](https://haiyefeng.github.io/baiduFrontToEnd/jsinput表单/发邮件.html)
+##### [js 表单](https://haiyefeng.github.io/baiduFrontToEnd/js input表单/发邮件.html)
 
 ##### [js date对象](https://haiyefeng.github.io/baiduFrontToEnd/jsdate对象/time.html)
 
@@ -23,7 +23,5 @@ baiduFrontToEnd
 ##### [js 数字计算](https://haiyefeng.github.io/baiduFrontToEnd/js数字计算/九九乘法表.html)
 
 ##### [js 图片库](https://haiyefeng.github.io/baiduFrontToEnd/图片库/图片库.html)
-
-##### [Ajax](https://haiyefeng.github.io/baiduFrontToEnd/Ajax/ajax.html)
 
 ##### [表格与svgcanvas](https://haiyefeng.github.io/baiduFrontToEnd/表格与svgcanvas/精明小卖家修改.html)
