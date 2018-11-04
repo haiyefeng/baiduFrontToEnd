@@ -2,7 +2,7 @@ baiduFrontToEnd
 -------
 ### 前端技术学院相关代码
 
-##### CSS弹性盒子
+##### [CSS弹性盒子](https://haiyefeng.github.io/baiduFrontToEnd/弹性盒子/design.html)
 
 ##### CSS布局
 
