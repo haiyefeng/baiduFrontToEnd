@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>form</title>
+    <style>
+    </style>
+
+</head>
+<body>
+        <div class="container">
+                <div class="form-group" id="formbox">
+                    <div id="region-radio-wrapper"></div>
+                    <div id="product-radio-wrapper"></div>
+                </div>
+                <div id="table-wrapper">1</div>
+        </div>
+
+    <script>
+        var users = [{
+            username:"007",
+            firstName:"James",
+            lastName:"Bond",
+            password:"foo"
+        },{
+            username:"008",
+            firstName:"Susan",
+            lastName:"Sound",
+            password:"soo"
+        },{
+            username:"009",
+            firstName:"Kane",
+            lastName:"Kond",
+            password:"koo"
+        },{
+            username:"010",
+            firstName:"Tom",
+            lastName:"Tond",
+            password:"too"
+        }]
+        
+        var indexedDB = window.indexedDB||window.msIndexedDB||window.mozIndexedDB||window.webkitIndexedDB;
+        var request,db;
+        request = indexedDB.open("admin");
+        request.onsuccess = function(event){
+            db = event.target.result;
+            function createIndex(){
+                var store = db.transaction("users").objectStore("users");
+                var index = store.createIndex("firstName","firstName",{unique:false});
+            }
+            createIndex();
+
+            function indexCursor(){
+                var store = db.transaction("users").objectStore("users");
+                var index = store.index("firstName");
+                var request = index.openKeyCursor();   //索引相当于对象仓库，只不过用索引名字代替了对象仓库的名字
+                                                       //索引上用openCursor，会把索引键保存在event.result.key中，而用openKeyCursor可以在event.result.key查找到索引键，event.result.value查找到主键
+            }
+
+//另外可以在索引上用get()取得一个对象，只需要传入索引键
+//getKey()可以取得主键，返回的请求中event.result.key保存索引键 event.result.value保存着主键
+//索引还具有以下属性：name\keyPath\objectStore\unique
+
+
+            function createCursor(){
+            var objectstore =  db.transaction("users").objectStore("users"),
+            IDBKeyRange = window.IDBKeyRange||window.webkitIDBKeyRange,     //创建游标范围，可以用上界upperBound、下界lowerBound、only和bound四个属性
+            IDBCursor = window.IDBCursor||window.webkitIDBCursor;           //游标移动方式NEXT、NEXT_NO_DUPLICATE、PREV、PREV_NO_DUPLICATE
+            var boundrange = IDBKeyRange.bound("007","009");
+            var request = objectstore.openCursor(boundrange,IDBCursor.PREV);
+                request.onsuccess = function(event){
+                var cursor = event.target.result;           //IDBCursor的实例，属性如下：direction游标移动方向 key对象的键 value对象 primaryKey游标使用的键
+                if(cursor){
+                    console.log("Key:"+cursor.key+",Value:"+JSON.stringify(cursor.value));
+                    cursor.continue();
+                }else{
+                    console.log("Done");
+                }
+            };
+            request.onerror = function(event){}
+            }
+            createCursor();
+            
+            function get(){
+            var transaction = db.transaction("users","readwrite");             //创建可读写的事务
+            var request = transaction.objectStore("users").get("007");
+            request.onerror = function(event){alert("did not get the object!");}
+            request.onsuccess = function(event){
+            var result = event.target.result;
+            console.log(result.firstName);}
+            }
+            get();
+            
+            function clear(){
+            var transaction = db.transaction("users","readwrite");             //创建可读写的事务
+            var request = transaction.objectStore("users").clear();
+            request.onerror = function(event){alert("did not get the object!")}
+            request.onsuccess = function(event){
+            var result = event.target.result;
+            console.log(result);}
+            }  
+        }
+        request.onerror = function(event){
+            alert("Something wrong:"+event.target.errorCode);
+        }
+        request.onupgradeneeded = function(event){                              //版本更新时触发
+            db = event.target.result;
+            if (!db.objectStoreNames.contains('users')) {
+            var store = db.createObjectStore("users",{ keyPath: "username"});}      //必须在upgradeneeded新建对象仓库，否则会失败
+            var i = 0,obsrequest,obsrequests=[],len = users.length;
+            while(i<len){
+            obsrequest = store.add(users[i++]);                                     //对象仓库由add，put，get
+            obsrequest.onsuccess = function(event){console.log('数据写入成功');
+            };
+            obsrequest.onerror = function(event){console.log('数据写入失败');
+            };
+            obsrequests.push(obsrequest); 
+        }
+        }
+        
+
+    </script>
+</body>
+
+</html>

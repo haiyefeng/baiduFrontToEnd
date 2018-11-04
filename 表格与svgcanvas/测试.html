@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>form</title>
+    <style>
+    </style>
+
+</head>
+<body>
+        <div class="container">
+                <div class="form-group" id="formbox">
+                    <div id="region-radio-wrapper"></div>
+                    <div id="product-radio-wrapper"></div>
+                </div>
+                <div id="table-wrapper"></div>
+            </div>
+    <script>
+    var tableWrapper = document.getElementById("table-wrapper");                //获取表格容器
+    tableWrapper.addEventListener("mouseover",reflectForm,false);
+    
+
+function reflectForm(data) {
+   var tdata = [];
+   var td = this.querySelectorAll("td");
+   for(i=0,len=td.length;i<len;i++){
+       var tdValue = td[i].firstChild.nodeValue;
+       tdata.push(tdValue);
+   }
+   createLine(tdata);
+}
+
+
+
+function createLine(data) {
+    var canvas = document.getElementById('canvas');
+    if(canvas.getContext){
+        var line = canvas.getContext('2d');
+        canvas.setAttribute("height","500");
+        canvas.setAttribute("width","500");
+        line.lineWith = 5;                         //定义坐标轴
+        line.beginPath();
+        line.translate(100,400);
+        line.moveTo(0,0);
+        line.lineTo(0,-300);
+        line.moveTo(0,0);
+        line.lineTo(300,0);
+        line.stroke();
+        var point = {                              //point对象用于保存数据点的描述
+            radial:"3",                            //定义好每一个数据点的直径，颜色，线的颜色，宽度               
+            fillColor:"blue",
+            strokeColor:"black",
+            strokeWith:"3",
+            distance:"20",                         //定义好每两个数据点之间的横向间隔距离
+        }
+        var datamax = 0;
+        data.forEach(function(item,index,array){            //拿到折线图中的最大值Max
+            if(!datamax){
+            datamax = item;
+            }
+            else{datamax = datamax>item?datamax:item;}        
+        });
+
+        var scale = 300/datamax;
+        var lastx = 0,
+        lasty = 0;
+        for(let i=0,len=data.length;i<len;i++){
+        var pointx = point.distance*i; 
+        var pointy = -data[i]*scale;
+        line.beginPath();
+        line.moveTo(lastx,lasty);
+        line.fillStyle = point.fillColor;
+        line.strokeStyle = point.strokeColor;
+        line.lineWith = point.strokeWith;
+        if(i){
+            line.lineTo(pointx,pointy);
+            line.stroke();
+            line.closePath();
+            line.beginPath();
+            line.arc(pointx,pointy,point.radial,0,2*Math.PI,false);
+            line.fill();           
+        }else{
+            line.arc(pointx,pointy,point.radial,0,2*Math.PI,false);
+            line.fill();
+            }
+            lastx = pointx;
+            lasty = pointy;
+        }
+    } 
+    }
+    </script>
+</body>
+
+</html>
