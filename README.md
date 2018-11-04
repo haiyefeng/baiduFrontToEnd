@@ -4,7 +4,7 @@ baiduFrontToEnd
 
 ##### [CSS弹性盒子](https://haiyefeng.github.io/baiduFrontToEnd/弹性盒子/design.html)
 
-##### [CSS布局](https://haiyefeng.github.io/baiduFrontToEnd/CSS布局/三列 中间自适应 定位.html)
+##### [CSS布局](https://haiyefeng.github.io/baiduFrontToEnd/CSS布局/三列中间自适应定位.html)
 
 ##### [html简历](https://haiyefeng.github.io/baiduFrontToEnd/html简历/resume.html)
 
