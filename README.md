@@ -12,7 +12,7 @@ baiduFrontToEnd
 
 ##### [html复杂的网页]( https://haiyefeng.github.io/baiduFrontToEnd/复杂网页/微信.html )
 
-##### [js input表单](https://haiyefeng.github.io/baiduFrontToEnd/js input表单/发邮件.html)
+##### [js表单](https://haiyefeng.github.io/baiduFrontToEnd/js input表单/发邮件.html)
 
 ##### [js date对象](https://haiyefeng.github.io/baiduFrontToEnd/jsdate对象/time.html)
 
