@@ -4,30 +4,26 @@ baiduFrontToEnd
 
 ##### [CSS弹性盒子](https://haiyefeng.github.io/baiduFrontToEnd/弹性盒子/design.html)
 
-##### CSS布局
+##### [CSS布局](https://haiyefeng.github.io/baiduFrontToEnd/CSS布局/三列 中间自适应 定位.html)
 
-##### html简历
+##### [html简历](https://haiyefeng.github.io/baiduFrontToEnd/html简历/resume.html)
 
-##### html百度设计稿
+##### [html百度设计稿](https://haiyefeng.github.io/baiduFrontToEnd/百度设计稿/welcome.html)
 
-##### html复杂的网页
+##### [html复杂的网页](https://haiyefeng.github.io/baiduFrontToEnd/复杂网页/微信.html)
 
-##### js input表单
+##### [js input表单](https://haiyefeng.github.io/baiduFrontToEnd/js input表单/发邮件.html)
 
-##### js date对象
+##### [js date对象](https://haiyefeng.github.io/baiduFrontToEnd/jsdate对象/time.html)
 
-##### js 查找元素
+##### [js 数组](https://haiyefeng.github.io/baiduFrontToEnd/数组/10数组.html)
 
-##### js 数组
+##### [js 动画](https://haiyefeng.github.io/baiduFrontToEnd/js动画/sprite/淡出.html)
 
-##### js 动画
+##### [js 数字计算](https://haiyefeng.github.io/baiduFrontToEnd/js数字计算/九九乘法表.html)
 
-##### js 数字计算
+##### [js 图片库](https://haiyefeng.github.io/baiduFrontToEnd/图片库/图片库.html)
 
-##### js 图片库
+##### [Ajax](https://haiyefeng.github.io/baiduFrontToEnd/Ajax/ajax.html)
 
-##### Ajax
-
-##### js xml
-
-##### 表格与svg canvas
+##### [表格与svg canvas](https://haiyefeng.github.io/baiduFrontToEnd/表格与svg canvas/精明小卖家修改.html)
